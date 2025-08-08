@@ -15,11 +15,7 @@ const LongbyteHero = () => {
         <div className="text-center mb-16">
           {/* Main heading */}
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight">
-            Empowering Local Businesses with{" "}
-            <br className="hidden sm:block" />
-            <span className="logo-color-transform">World-Class Apps</span>
-            <br className="hidden sm:block" />
-            <span className="text-xl md:text-2xl lg:text-3xl">– at a Very Low Cost</span>
+            Vision<span className="text-muted-foreground mx-2">.</span>LowPrice<span className="text-muted-foreground mx-2">.</span>Excellence
           </h1>
 
           {/* Subheading */}
