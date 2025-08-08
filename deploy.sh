@@ -4,7 +4,7 @@ echo "🚀 Deploying Longbyte website to GitHub Pages..."
 
 # Build the project
 echo "📦 Building project..."
-npm run build
+npm run build:prod
 
 # Initialize git in dist folder if not exists
 cd dist
