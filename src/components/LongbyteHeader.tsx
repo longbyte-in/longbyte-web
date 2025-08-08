@@ -20,7 +20,7 @@ const LongbyteHeader = () => {
           {/* Logo */}
           <div className="flex items-center">
             <img
-              src="/logo.png"
+              src="logo.png"
               alt="Longbyte Software Logo"
               className="h-8 w-8 mr-3"
             />
