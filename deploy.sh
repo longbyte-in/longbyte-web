@@ -10,6 +10,7 @@ npm run build
 cd dist
 if [ ! -d ".git" ]; then
     git init
+    git branch -M gh-pages
     git remote add origin https://github.com/longbyte-in/longbyte-web.git
 fi
 
@@ -19,7 +20,7 @@ git commit -m "Deploy: $(date)"
 
 # Force push to gh-pages branch
 echo "🌐 Deploying to GitHub Pages..."
-git push -f origin main:gh-pages
+git push -f origin gh-pages
 
 echo "✅ Deployment complete! Your site will be available shortly at https://longbyte.in"
 
