@@ -10,7 +10,8 @@ const projects = [
     features: ["Product Catalog", "Secure Payments", "Inventory Management", "Mobile Responsive"],
     icon: Gem,
     gradient: "gradient-primary",
-    status: "Live"
+    status: "Live",
+    logo: "/pournami-logo.png"
   },
   {
     name: "VRemind",
@@ -19,16 +20,8 @@ const projects = [
     features: ["Attendance Tracking", "Exam Management", "Staff Payroll", "Parent Communication"],
     icon: GraduationCap,
     gradient: "gradient-secondary",
-    status: "Play Store"
-  },
-  {
-    name: "Peekaboo",
-    type: "Upcoming Product",
-    description: "An exciting new project currently in development. Stay tuned for more details about this innovative solution that will transform user experiences.",
-    features: ["Coming Soon", "Innovation Focused", "User-Centric", "Modern Tech Stack"],
-    icon: Eye,
-    gradient: "gradient-primary",
-    status: "Coming Soon"
+    status: "Play Store",
+    logo: "/vremind-logo.png"
   }
 ];
 
@@ -39,10 +32,10 @@ const LongbyteProjects = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Our <span className="gradient-text">Work</span>
+            Our <span className="gradient-text">Consultancy Work</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Discover the impactful solutions we've delivered, from elegant e-commerce platforms to comprehensive management systems.
+            Discover the impactful consultancy solutions we've delivered for our clients, from elegant e-commerce platforms to comprehensive management systems.
           </p>
         </div>
 
@@ -68,10 +61,10 @@ const LongbyteProjects = () => {
               <div className={`absolute inset-0 opacity-5 ${project.gradient} group-hover:opacity-10 transition-opacity duration-500`}></div>
 
               <div className="relative p-6">
-                {/* Icon */}
+                {/* Logo and Icon */}
                 <div className="flex items-center mb-4">
-                  <div className={`p-3 rounded-lg ${project.gradient} mr-4`}>
-                    <project.icon className="w-6 h-6 text-white" />
+                  <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-white shadow-sm mr-4">
+                    <img src={project.logo} alt={`${project.name} logo`} className="w-8 h-8" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-card-foreground group-hover:gradient-text transition-all duration-300">

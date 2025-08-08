@@ -49,7 +49,7 @@ const LongbyteContact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-card-foreground">Email Us</h4>
-                    <p className="text-muted-foreground">hello@longbyte.com</p>
+                    <p className="text-muted-foreground">hi@longbyte.in</p>
                   </div>
                 </div>
               </Card>
@@ -61,7 +61,7 @@ const LongbyteContact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-card-foreground">Website</h4>
-                    <p className="text-muted-foreground">www.longbyte.com</p>
+                    <p className="text-muted-foreground">https://longbyte.in</p>
                   </div>
                 </div>
               </Card>

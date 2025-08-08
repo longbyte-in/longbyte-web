@@ -27,20 +27,20 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 220 13% 9%;
 
-    /* Primary brand color - Pink */
-    --primary: 339 82% 65%;
+    /* Primary brand color - Pink (improved contrast) */
+    --primary: 339 82% 55%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 339 82% 55%;
+    --primary-hover: 339 82% 45%;
 
-    /* Secondary - Green */
-    --secondary: 155 47% 49%;
+    /* Secondary - Green (improved contrast) */
+    --secondary: 155 47% 39%;
     --secondary-foreground: 0 0% 100%;
-    --secondary-hover: 155 47% 39%;
+    --secondary-hover: 155 47% 29%;
 
-    /* Accent - Yellow */
-    --accent: 45 94% 65%;
+    /* Accent - Yellow (improved contrast) */
+    --accent: 45 94% 55%;
     --accent-foreground: 220 13% 9%;
-    --accent-hover: 45 94% 55%;
+    --accent-hover: 45 94% 45%;
 
     /* Muted and subtle */
     --muted: 220 14% 96%;
@@ -55,11 +55,11 @@ All colors MUST be HSL.
     --input: 220 13% 91%;
     --ring: 339 82% 65%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--longbyte-pink)), hsl(var(--longbyte-yellow)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--longbyte-green)), hsl(var(--longbyte-pink)));
+    /* Gradients (improved visibility) */
+    --gradient-primary: linear-gradient(135deg, hsl(339 82% 55%), hsl(45 94% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(155 47% 39%), hsl(339 82% 55%));
     --gradient-hero: linear-gradient(135deg, hsl(var(--longbyte-dark)) 0%, hsl(var(--longbyte-pink) / 0.1) 100%);
-    --gradient-text: linear-gradient(135deg, hsl(var(--longbyte-pink)), hsl(var(--longbyte-green)));
+    --gradient-text: linear-gradient(135deg, hsl(339 82% 45%), hsl(155 47% 35%));
 
     /* Shadows */
     --shadow-elegant: 0 10px 30px -10px hsl(var(--longbyte-pink) / 0.2);
@@ -102,13 +102,13 @@ All colors MUST be HSL.
     --primary: 339 82% 65%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 155 47% 49%;
+    --secondary: 155 47% 55%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 220 13% 15%;
     --muted-foreground: 220 9% 65%;
 
-    --accent: 45 94% 65%;
+    --accent: 45 94% 70%;
     --accent-foreground: 220 13% 9%;
 
     --destructive: 0 62.8% 30.6%;
