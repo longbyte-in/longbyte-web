@@ -2,9 +2,71 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Mail, Globe, Send, MessageCircle } from "lucide-react";
+import { MapPin, Mail, Globe, Send, MessageCircle, CheckCircle, AlertCircle } from "lucide-react";
+import { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 
 const LongbyteContact = () => {
+  const form = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    company: '',
+    projectType: '',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
+      setSubmitStatus('error');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // EmailJS configuration - you'll need to replace these with your actual EmailJS credentials
+      const result = await emailjs.sendForm(
+        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        form.current!,
+        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+      );
+
+      console.log('Email sent successfully:', result.text);
+      setSubmitStatus('success');
+
+      // Reset form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        company: '',
+        projectType: '',
+        message: ''
+      });
+
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <section id="contact" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,26 +160,34 @@ const LongbyteContact = () => {
               <h3 className="text-xl font-semibold">Send us a Message</h3>
             </div>
 
-            <form className="space-y-6">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium text-card-foreground mb-2">
                     First Name *
                   </label>
-                  <Input 
-                    id="firstName" 
+                  <Input
+                    id="firstName"
+                    name="from_firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
                     placeholder="Your first name"
                     className="bg-background border-border"
+                    required
                   />
                 </div>
                 <div>
                   <label htmlFor="lastName" className="block text-sm font-medium text-card-foreground mb-2">
                     Last Name *
                   </label>
-                  <Input 
-                    id="lastName" 
+                  <Input
+                    id="lastName"
+                    name="from_lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
                     placeholder="Your last name"
                     className="bg-background border-border"
+                    required
                   />
                 </div>
               </div>
@@ -126,11 +196,15 @@ const LongbyteContact = () => {
                 <label htmlFor="email" className="block text-sm font-medium text-card-foreground mb-2">
                   Email Address *
                 </label>
-                <Input 
-                  id="email" 
-                  type="email" 
+                <Input
+                  id="email"
+                  name="from_email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   placeholder="your.email@example.com"
                   className="bg-background border-border"
+                  required
                 />
               </div>
 
@@ -138,8 +212,11 @@ const LongbyteContact = () => {
                 <label htmlFor="company" className="block text-sm font-medium text-card-foreground mb-2">
                   Company / Organization
                 </label>
-                <Input 
-                  id="company" 
+                <Input
+                  id="company"
+                  name="from_company"
+                  value={formData.company}
+                  onChange={handleInputChange}
                   placeholder="Your company name"
                   className="bg-background border-border"
                 />
@@ -149,8 +226,11 @@ const LongbyteContact = () => {
                 <label htmlFor="projectType" className="block text-sm font-medium text-card-foreground mb-2">
                   Project Type
                 </label>
-                <select 
+                <select
                   id="projectType"
+                  name="project_type"
+                  value={formData.projectType}
+                  onChange={handleInputChange}
                   className="w-full p-3 rounded-md border border-border bg-background text-foreground focus:ring-2 focus:ring-ring focus:border-transparent"
                 >
                   <option value="">Select project type</option>
@@ -168,22 +248,51 @@ const LongbyteContact = () => {
                 <label htmlFor="message" className="block text-sm font-medium text-card-foreground mb-2">
                   Project Details *
                 </label>
-                <Textarea 
-                  id="message" 
+                <Textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   placeholder="Tell us about your project, timeline, budget, and any specific requirements..."
                   rows={5}
                   className="bg-background border-border"
+                  required
                 />
               </div>
 
-              <Button 
-                type="submit" 
-                variant="hero" 
-                size="lg" 
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <div className="flex items-center p-4 bg-green-50 border border-green-200 rounded-md">
+                  <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
+                  <p className="text-green-800">Message sent successfully! We'll get back to you within 24 hours.</p>
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="flex items-center p-4 bg-red-50 border border-red-200 rounded-md">
+                  <AlertCircle className="w-5 h-5 text-red-600 mr-3" />
+                  <p className="text-red-800">Failed to send message. Please check all required fields and try again.</p>
+                </div>
+              )}
+
+              <Button
+                type="submit"
+                variant="hero"
+                size="lg"
                 className="w-full"
+                disabled={isSubmitting}
               >
-                <Send className="w-5 h-5 mr-2" />
-                Send Message
+                {isSubmitting ? (
+                  <>
+                    <div className="w-5 h-5 mr-2 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5 mr-2" />
+                    Send Message
+                  </>
+                )}
               </Button>
 
               <p className="text-sm text-muted-foreground text-center">

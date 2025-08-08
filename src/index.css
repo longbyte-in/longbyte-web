@@ -13,7 +13,7 @@ All colors MUST be HSL.
     --longbyte-green: 155 47% 49%;
     --longbyte-yellow: 45 94% 65%;
     --longbyte-dark: 220 13% 9%;
-    
+
     /* Background and surfaces */
     --background: 0 0% 100%;
     --foreground: 220 13% 9%;
@@ -148,18 +148,73 @@ All colors MUST be HSL.
 
   /* Custom animations */
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
   }
 
   @keyframes pulse-glow {
-    0%, 100% { box-shadow: var(--shadow-soft); }
-    50% { box-shadow: var(--shadow-glow); }
+
+    0%,
+    100% {
+      box-shadow: var(--shadow-soft);
+    }
+
+    50% {
+      box-shadow: var(--shadow-glow);
+    }
   }
 
   @keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes logo-color-flow {
+
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    25% {
+      background-position: 50% 0%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    75% {
+      background-position: 50% 100%;
+    }
+  }
+
+  @keyframes logo-color-wave {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
   }
 
   .animate-float {
@@ -171,12 +226,31 @@ All colors MUST be HSL.
   }
 
   .gradient-text {
-    background: var(--gradient-text);
-    background-size: 200% 200%;
+    background: linear-gradient(45deg,
+        hsl(var(--longbyte-pink)),
+        hsl(var(--longbyte-green)),
+        hsl(var(--longbyte-yellow)),
+        hsl(var(--longbyte-pink)));
+    background-size: 400% 400%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradient-shift 3s ease infinite;
+    animation: logo-color-flow 4s ease-in-out infinite;
+  }
+
+  /* New animated gradient for logo colors */
+  .logo-color-transform {
+    background: linear-gradient(90deg,
+        hsl(var(--longbyte-pink)),
+        hsl(var(--longbyte-green)),
+        hsl(var(--longbyte-yellow)),
+        hsl(var(--longbyte-pink)),
+        hsl(var(--longbyte-green)));
+    background-size: 500% 500%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: logo-color-wave 6s linear infinite;
   }
 
   .gradient-primary {

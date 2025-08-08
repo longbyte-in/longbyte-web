@@ -21,11 +21,18 @@ const projects = [
     icon: GraduationCap,
     gradient: "gradient-secondary",
     status: "Play Store",
-    logo: "/vremind-logo.png"
+    logo: "/vremind-logo.jpeg"
   }
 ];
 
 const LongbyteProjects = () => {
+  const handleProjectClick = (projectName: string) => {
+    if (projectName === "VRemind") {
+      window.open("https://vremind.vxsoftwaresolutions.com/login", "_blank");
+    }
+    // Add other project URLs here as needed
+  };
+
   return (
     <section id="projects" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,17 +49,16 @@ const LongbyteProjects = () => {
         {/* Projects Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
           {projects.map((project, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               className="relative overflow-hidden group hover:shadow-elegant transition-all duration-500 transform hover:scale-105 border-border/50 bg-card/50 backdrop-blur-sm"
             >
               {/* Status Badge */}
               <div className="absolute top-4 right-4 z-10">
-                <span className={`px-3 py-1 text-xs font-medium rounded-full ${
-                  project.status === 'Live' ? 'bg-secondary text-secondary-foreground' :
+                <span className={`px-3 py-1 text-xs font-medium rounded-full ${project.status === 'Live' ? 'bg-secondary text-secondary-foreground' :
                   project.status === 'Play Store' ? 'bg-primary text-primary-foreground' :
-                  'bg-accent text-accent-foreground'
-                }`}>
+                    'bg-accent text-accent-foreground'
+                  }`}>
                   {project.status}
                 </span>
               </div>
@@ -94,7 +100,12 @@ const LongbyteProjects = () => {
 
                 {/* CTA */}
                 {project.status !== 'Coming Soon' && (
-                  <Button variant="outline" size="sm" className="w-full group-hover:border-primary group-hover:text-primary transition-colors">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full group-hover:border-primary group-hover:text-primary transition-colors"
+                    onClick={() => handleProjectClick(project.name)}
+                  >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     View Project
                   </Button>

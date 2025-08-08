@@ -19,12 +19,12 @@ const LongbyteHeader = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <img 
-              src="/lovable-uploads/017fca13-369f-4805-8072-e25e221d2949.png" 
-              alt="Longbyte Software Logo" 
+            <img
+              src="logo.png"
+              alt="Longbyte Software Logo"
               className="h-8 w-8 mr-3"
             />
-            <span className="text-xl font-bold gradient-text">Longbyte</span>
+            <span className="text-xl font-bold logo-color-transform">Longbyte</span>
           </div>
 
           {/* Desktop Navigation */}

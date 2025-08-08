@@ -61,8 +61,8 @@ const LongbyteAbout = () => {
         {/* Values Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {values.map((value, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               className="p-6 hover:shadow-elegant transition-all duration-300 transform hover:scale-105 border-border/50 bg-card/50 backdrop-blur-sm group"
             >
               <div className="text-center">
@@ -98,10 +98,10 @@ const LongbyteAbout = () => {
         {/* Closing Statement */}
         <div className="mt-16 text-center">
           <Card className="p-8 bg-gradient-secondary border-0 text-white">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-card-foreground">
               🌈 Bringing Dreams to Digital Life
             </h3>
-            <p className="text-lg opacity-90 max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               With Longbyte, building your dream application is just the beginning — we're your technology partners for every step of your growth journey.
             </p>
           </Card>

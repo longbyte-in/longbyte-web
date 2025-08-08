@@ -10,12 +10,12 @@ const LongbyteFooter = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4">
-              <img 
-                src="/lovable-uploads/017fca13-369f-4805-8072-e25e221d2949.png" 
-                alt="Longbyte Software Logo" 
+              <img
+                src="logo.png"
+                alt="Longbyte Software Logo"
                 className="h-8 w-8 mr-3"
               />
-              <span className="text-xl font-bold">Longbyte Software</span>
+              <span className="text-xl font-bold">Longbyte</span>
             </div>
             <p className="text-gray-300 text-lg leading-relaxed mb-6 max-w-md">
               Modern software consultancy empowering startups with AI-powered digital solutions. Building dreams into digital reality.
@@ -57,17 +57,6 @@ const LongbyteFooter = () => {
             {/* Copyright */}
             <div className="flex items-center text-gray-400 mb-4 md:mb-0">
               <span>© {currentYear} Longbyte Software Private Limited. All rights reserved.</span>
-            </div>
-
-            {/* Made with love */}
-            <div className="flex items-center text-gray-400">
-              <span className="mr-2">Made with</span>
-              <Heart className="w-4 h-4 text-red-400 mx-1" />
-              <span className="mr-2">and</span>
-              <Code className="w-4 h-4 text-blue-400 mx-1" />
-              <span className="mr-2">using</span>
-              <Sparkles className="w-4 h-4 text-yellow-400 mx-1" />
-              <span>AI</span>
             </div>
           </div>
 
