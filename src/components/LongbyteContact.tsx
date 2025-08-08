@@ -41,10 +41,10 @@ const LongbyteContact = () => {
     try {
       // EmailJS configuration - you'll need to replace these with your actual EmailJS credentials
       const result = await emailjs.sendForm(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        'service_42vqby8', // Replace with your EmailJS service ID
+        'template_7vj4rfj', // Replace with your EmailJS template ID
         form.current!,
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+        'Xwrq_yy_psPNCE282' // Replace with your EmailJS public key
       );
 
       console.log('Email sent successfully:', result.text);
