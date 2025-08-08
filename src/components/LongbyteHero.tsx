@@ -14,9 +14,12 @@ const LongbyteHero = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           {/* Main heading */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight">
             Empowering Local Businesses with{" "}
-            <span className="logo-color-transform">World-Class Apps</span> – at a Very Low Cost
+            <br className="hidden sm:block" />
+            <span className="logo-color-transform">World-Class Apps</span>
+            <br className="hidden sm:block" />
+            <span className="text-xl md:text-2xl lg:text-3xl">– at a Very Low Cost</span>
           </h1>
 
           {/* Subheading */}

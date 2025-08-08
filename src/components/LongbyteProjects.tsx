@@ -11,7 +11,7 @@ const projects = [
     icon: Gem,
     gradient: "gradient-primary",
     status: "Live",
-    logo: "/pournami-logo.png"
+    logo: "pournami-logo.png"
   },
   {
     name: "VRemind",
@@ -21,7 +21,7 @@ const projects = [
     icon: GraduationCap,
     gradient: "gradient-secondary",
     status: "Play Store",
-    logo: "/vremind-logo.jpeg"
+    logo: "vremind-logo.jpeg"
   }
 ];
 
