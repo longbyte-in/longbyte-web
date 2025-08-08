@@ -2,7 +2,7 @@ import LongbyteHeader from "@/components/LongbyteHeader";
 import LongbyteFooter from "@/components/LongbyteFooter";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Eye, ArrowRight } from "lucide-react";
+import { Eye, ArrowRight, Thermometer, Users, Camera, TrendingUp } from "lucide-react";
 
 const Products = () => {
   return (
@@ -22,8 +22,8 @@ const Products = () => {
             </div>
 
             {/* Peekaboo Product */}
-            <div className="max-w-4xl mx-auto">
-              <Card className="relative overflow-hidden group hover:shadow-elegant transition-all duration-500 transform hover:scale-105 border-border/50 bg-card/50 backdrop-blur-sm">
+            <div className="max-w-6xl mx-auto">
+              <Card className="relative overflow-hidden group hover:shadow-elegant transition-all duration-500 transform hover:scale-[1.02] border-border/50 bg-card/50 backdrop-blur-sm">
                 {/* Status Badge */}
                 <div className="absolute top-6 right-6 z-10">
                   <span className="px-4 py-2 text-sm font-medium rounded-full bg-accent text-accent-foreground">
@@ -35,47 +35,73 @@ const Products = () => {
                 <div className="absolute inset-0 opacity-5 gradient-primary group-hover:opacity-10 transition-opacity duration-500"></div>
 
                 <div className="relative p-8">
-                  {/* Icon and Header */}
-                  <div className="flex items-center mb-6">
-                    <div className="p-4 rounded-xl gradient-primary mr-6">
-                      <Eye className="w-8 h-8 text-white" />
+                  {/* Header with Logo */}
+                  <div className="flex items-center mb-8">
+                    <div className="mr-6">
+                      <img
+                        src="peekaboo-logo.svg"
+                        alt="Peekaboo Logo"
+                        className="w-16 h-16"
+                      />
                     </div>
                     <div>
-                      <h2 className="text-3xl font-bold text-card-foreground group-hover:gradient-text transition-all duration-300">
+                      <h2 className="text-4xl font-bold text-card-foreground group-hover:gradient-text transition-all duration-300">
                         Peekaboo
                       </h2>
-                      <p className="text-lg text-muted-foreground">Upcoming Product</p>
+                      <p className="text-xl text-muted-foreground italic">See the World Before You Go</p>
                     </div>
                   </div>
 
-                  {/* Description */}
-                  <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                    An exciting new project currently in development. Stay tuned for more details about this innovative solution that will transform user experiences and revolutionize how businesses interact with their customers.
-                  </p>
-
-                  {/* Features Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <div className="space-y-4">
-                      <h3 className="text-lg font-semibold text-card-foreground">What to Expect:</h3>
-                      <div className="space-y-3">
-                        {["Innovation Focused", "User-Centric Design", "Modern Tech Stack", "Scalable Architecture"].map((feature, index) => (
-                          <div key={index} className="flex items-center text-muted-foreground">
-                            <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                            {feature}
-                          </div>
-                        ))}
+                  {/* Problem Statement */}
+                  <div className="mb-8 p-6 bg-surface/50 rounded-lg border border-border/30">
+                    <h3 className="text-xl font-semibold text-card-foreground mb-4">The Travel Problem</h3>
+                    <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
+                      Planning a trip is filled with uncertainty:
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                      <div className="flex items-center text-muted-foreground">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
+                        What's the real-time weather?
+                      </div>
+                      <div className="flex items-center text-muted-foreground">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
+                        How crowded is it?
+                      </div>
+                      <div className="flex items-center text-muted-foreground">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
+                        Is the location as good as the photos?
                       </div>
                     </div>
-                    <div className="space-y-4">
-                      <h3 className="text-lg font-semibold text-card-foreground">Target Benefits:</h3>
-                      <div className="space-y-3">
-                        {["Enhanced User Experience", "Business Growth", "Operational Efficiency", "Market Innovation"].map((benefit, index) => (
-                          <div key={index} className="flex items-center text-muted-foreground">
-                            <div className="w-2 h-2 bg-secondary rounded-full mr-3"></div>
-                            {benefit}
-                          </div>
-                        ))}
-                      </div>
+                    <div className="text-muted-foreground space-y-2">
+                      <p>• Most travel platforms show outdated or staged visuals</p>
+                      <p>• Tourists often reach and regret the timing or the experience</p>
+                    </div>
+                  </div>
+
+                  {/* Solution */}
+                  <div className="mb-8">
+                    <h3 className="text-2xl font-semibold text-card-foreground mb-4">Our Solution</h3>
+                    <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                      Peekaboo lets users view real-time CCTV footage of popular travel destinations around the world.
+                    </p>
+                  </div>
+
+                  {/* Features Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div className="p-6 bg-surface/50 rounded-lg border border-border/30 text-center">
+                      <Camera className="w-12 h-12 text-primary mx-auto mb-4" />
+                      <h4 className="text-lg font-semibold text-card-foreground mb-2">🔴 Live Streams</h4>
+                      <p className="text-muted-foreground">Real-time CCTV footage + environmental data (temperature, crowd level)</p>
+                    </div>
+                    <div className="p-6 bg-surface/50 rounded-lg border border-border/30 text-center">
+                      <TrendingUp className="w-12 h-12 text-secondary mx-auto mb-4" />
+                      <h4 className="text-lg font-semibold text-card-foreground mb-2">📊 Predictive Trends</h4>
+                      <p className="text-muted-foreground">Best days/times to visit based on historical data and patterns</p>
+                    </div>
+                    <div className="p-6 bg-surface/50 rounded-lg border border-border/30 text-center">
+                      <Users className="w-12 h-12 text-accent mx-auto mb-4" />
+                      <h4 className="text-lg font-semibold text-card-foreground mb-2">🧭 Local Insights</h4>
+                      <p className="text-muted-foreground">Local tips, crowd status, and personalized travel suggestions</p>
                     </div>
                   </div>
 
@@ -95,7 +121,7 @@ const Products = () => {
               <div className="inline-flex flex-col items-center p-8 rounded-2xl bg-surface border border-border shadow-soft">
                 <h3 className="text-2xl font-bold mb-4">Stay Updated</h3>
                 <p className="text-muted-foreground mb-6 max-w-md">
-                  Be the first to know when Peekaboo launches. Get notified about updates and early access opportunities.
+                  Be the first to know when Peekaboo launches. Get real-time travel insights and never miss the perfect moment to visit your dream destination.
                 </p>
                 <Button variant="default" size="lg">
                   Notify Me

@@ -59,13 +59,6 @@ const LongbyteFooter = () => {
               <span>© {currentYear} Longbyte Software Private Limited. All rights reserved.</span>
             </div>
           </div>
-
-          {/* Tagline */}
-          <div className="text-center mt-6">
-            <p className="text-gray-400 italic">
-              "Bringing Dreams to Digital Life"
-            </p>
-          </div>
         </div>
       </div>
     </footer>
