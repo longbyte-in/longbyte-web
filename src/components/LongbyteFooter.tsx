@@ -1,4 +1,5 @@
 import { Heart, Code, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const LongbyteFooter = () => {
   const currentYear = new Date().getFullYear();
@@ -35,7 +36,7 @@ const LongbyteFooter = () => {
               <li><a href="#products" className="text-gray-300 hover:text-white transition-colors">Products</a></li>
               <li><a href="#about" className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
               <li><a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contact</a></li>
-              <li><a href="/privacy" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><Link to="/privacy" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
 
